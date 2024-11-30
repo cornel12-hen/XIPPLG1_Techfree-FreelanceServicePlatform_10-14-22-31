@@ -31,7 +31,7 @@
               <a href="#" class="hover:text-pkk">Home</a>
               <a href="services" class="hover:text-pkk">Services</a>
             </div>
-            <a href="Sign Up.html" class="hover:text-pkk">
+            <a href="signup" class="hover:text-pkk">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path
                   stroke-linecap="round"
@@ -47,8 +47,8 @@
         <div id="mobile-menu" class="fixed top-0 right-0 h-full w-48 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden z-40">
           <div class="flex flex-col items-start space-y-4 py-8 px-6">
             <a href="#" class="block hover:text-pkk">Home</a>
-            <a href="{{ route('services') }}" class="block hover:text-pkk">Services</a>
-            <a href="Sign Up.html" class="hover:text-pkk flex items-center"> Sign Up </a>
+            <a href="services" class="block hover:text-pkk">Services</a>
+            <a href="signup" class="hover:text-pkk flex items-center"> Sign Up </a>
           </div>
         </div>
       </div>
@@ -124,7 +124,7 @@
       <div class="max-w-7xl mx-auto text-center">
         <h2 class="text-4xl font-bold">Ready To Get Started?</h2>
         <p class="mt-4 text-lg mx-2">Bergabunglah sebagai seorang klien maupun freelancer! Ambil peluang yang tak terbatas dan raihlah kebebasanmu!</p>
-        <a href="Sign Up.html" class="mt-6 inline-block bg-pkk text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-pkk">Sign Up Now</a>
+        <a href="signup" class="mt-6 inline-block bg-pkk text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-pkk">Sign Up Now</a>
       </div>
     </section>
 
