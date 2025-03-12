@@ -31,14 +31,17 @@
               <a href="#" class="hover:text-pkk">Home</a>
               <a href="services" class="hover:text-pkk">Services</a>
             </div>
-            <a href="signup" class="hover:text-pkk">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <a href="#CTA">
+              {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                 />
-              </svg>
+              </svg> --}}
+              <div class="bg-gray-800 w-auto h-auto px-3 py-1 rounded-md text-white transition-colors duration-500 ease-in-out hover:bg-gray-600">
+                <p>Get Started</p>
+              </div>
             </a>
           </div>
         </div>
@@ -47,8 +50,8 @@
         <div id="mobile-menu" class="fixed top-0 right-0 h-full w-48 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden z-40">
           <div class="flex flex-col items-start space-y-4 py-8 px-6">
             <a href="#" class="block hover:text-pkk">Home</a>
-            <a href="services" class="block hover:text-pkk">Services</a>
-            <a href="signup" class="hover:text-pkk flex items-center"> Sign Up </a>
+            <a href="{{ route('services') }}" class="block hover:text-pkk">Services</a>
+            <a href="#CTA" class="hover:text-pkk flex items-center"> Get Started </a>
           </div>
         </div>
       </div>
@@ -121,10 +124,24 @@
 
     <!-- CTA (Call To Action) -->
     <section id="CTA" class="bg-gray-800 text-white py-16">
-      <div class="max-w-7xl mx-auto text-center">
+      <div class="max-w-7xl mx-auto text-center flex flex-col items-center">
         <h2 class="text-4xl font-bold">Ready To Get Started?</h2>
         <p class="mt-4 text-lg mx-2">Bergabunglah sebagai seorang klien maupun freelancer! Ambil peluang yang tak terbatas dan raihlah kebebasanmu!</p>
-        <a href="signup" class="mt-6 inline-block bg-pkk text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-pkk">Sign Up Now</a>
+        {{-- <a href="signup" class="mt-6 inline-block bg-pkk text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-pkk">Sign Up Now</a> --}}
+        <div class="flex md:w-[480px] md:h-[200px] w-[35%] h-[35%] max-w-[100%] justify-center mt-8 gap-8">
+          <div class="w-96 bg-white text-gray-800 font-bold text-xl rounded-xl hover:scale-105 transition-transform overflow-hidden">
+            <a href="{{ route('freelancer.register') }}">
+              <img src="img/freelancer.jpg" alt="" class="w-full h-[75%] scale-x-[-1] mb-2">
+              <p>Freelancer</p>
+            </a>
+          </div>
+          <div class="w-96 bg-white text-gray-800 font-bold text-xl rounded-xl hover:scale-105 transition-transform overflow-hidden">
+            <a href="{{ route('client.register') }}">
+              <img src="img/client.jpg" alt="" class="w-full h-[75%] mb-2">
+              <p>Client</p>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 

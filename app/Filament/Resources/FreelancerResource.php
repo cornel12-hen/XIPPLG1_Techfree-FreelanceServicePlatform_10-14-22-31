@@ -63,7 +63,7 @@ class FreelancerResource extends Resource
                 Tables\Columns\ImageColumn::make('profile_pic'),
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('porto_url'),
-                Tables\Columns\TextInputColumn::make('age')->numeric(),
+                Tables\Columns\TextColumn::make('age'),
                 Tables\Columns\SelectColumn::make('rank')->options(
                     [
                         'Bronze' => 'Bronze',
@@ -73,8 +73,8 @@ class FreelancerResource extends Resource
                         'Diamond' => 'Diamond',
                     ]
                 ),
-                Tables\Columns\TextColumn::make('email')->required(),
-                Tables\Columns\TextColumn::make('password')->required(),
+                Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('password'),
                 Tables\Columns\TextColumn::make('address'),
                 Tables\Columns\TextColumn::make('join_date'),
                 Tables\Columns\TextColumn::make('work_hours'),

@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string('profile_pic');
+            $table->string('profile_pic')->nullable();
             $table->string('name');
             $table->integer('age');
             $table->string('email')->unique();
             $table->string('password');
             $table->date('join_date');
-            $table->integer('job_offer');
-            $table->decimal('rating', 2, 1);
+            $table->integer('job_offer')->default(0);
+            $table->decimal('rating', 2, 1)->nullable();
             $table->timestamps();
         });
     }

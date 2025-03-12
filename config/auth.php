@@ -13,9 +13,14 @@ return [
     |
     */
 
+    // 'defaults' => [
+    //     'guard' => env('AUTH_GUARD', 'web'),
+    //     'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
+    // ],
+
     'defaults' => [
-        'guard' => env('AUTH_GUARD', 'web'),
-        'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
+        'guard' => 'freelancer',
+        'passwords' => 'freelancers',
     ],
 
     /*
@@ -36,6 +41,14 @@ return [
     */
 
     'guards' => [
+        'freelancer' => [
+            'driver' => 'session',
+            'provider' => 'freelancers',
+        ],
+        'client' => [
+            'driver' => 'session',
+            'provider' => 'clients'
+        ],
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -63,6 +76,16 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
+        ],
+
+        'freelancers' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Freelancer::class),
+        ],
+
+        'clients' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Client::class),
         ],
 
         // 'users' => [
@@ -94,6 +117,20 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'freelancers' => [
+            'provider' => 'freelancers',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'clients' => [
+            'provider' => 'clients',
+            'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],

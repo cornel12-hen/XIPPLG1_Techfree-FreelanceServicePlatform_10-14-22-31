@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('freelancer_id');
             $table->foreign('freelancer_id')->references('id')->on('freelancers')->onDelete('cascade');
             $table->unsignedBigInteger('job_id');
+            $table->foreign('job_id')->references('id')->on('work_jobs')->onDelete('cascade');
             $table->dateTime('accepted_at')->nullable();
             $table->text('description');
             $table->enum('status', ['Closed', 'Open', 'Pending'])->default('Closed');

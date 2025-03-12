@@ -20,10 +20,8 @@ return new class extends Migration
             $table->foreign('category_id')->references('id')->on('job_categories')->onDelete('cascade');
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
-            $table->unsignedBigInteger('application_id')->nullable();
-            $table->foreign('application_id')->references('id')->on('applications')->onDelete('cascade');
-            $table->date('job_deadline');
-            $table->date('posted_at');
+            $table->dateTime('job_deadline');
+            $table->dateTime('posted_at');
             $table->enum('status', ['Not accept', 'On process', 'On submission', 'Finish'])->default('Not accept');
             $table->decimal('price', 14, 2);
             $table->timestamps();
@@ -35,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jobs');
+        Schema::dropIfExists('work_jobs');
     }
 };

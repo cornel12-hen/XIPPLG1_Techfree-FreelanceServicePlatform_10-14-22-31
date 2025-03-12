@@ -65,21 +65,39 @@
           <p class="text-4xl font-bold">Welcome To Techfree!</p>
           <p class="text-lg">Please sign up first</p>
         </div>
-        <form class="flex flex-col" action="">
-          <label for="username">Username</label>
-          <input class="w-full mb-8 mt-1 border-2 border-dark rounded-lg h-10 p-2" type="text" name="username" />
+        <form action="{{ route('register') }}" method="POST" class="flex flex-col">
+          @csrf
+          <label for="username">Name</label>
+          <input class="w-full mb-2 mt-[1px] border-2 border-dark rounded-md h-10 p-2" type="text" name="name" value="{{ old('name') }}" />
 
           <label for="email">Email</label>
-          <input class="w-full mb-8 mt-1 border-2 border-dark rounded-lg h-10 p-2" type="text" name="email" />
+          <input class="w-full mb-2 mt-[1px] border-2 border-dark rounded-md h-10 p-2" type="text" name="email" value="{{ old('email') }}" />
 
           <label for="password">Password</label>
-          <input class="w-full mb-10 mt-1 border-2 border-dark rounded-lg h-10 p-2" type="password" name="password" id="" />
+          <input class="w-full mb-2 mt-[1px] border-2 border-dark rounded-md h-10 p-2" type="password" name="password" />
+          @error('password')
+              @if (str_contains($message, '8 characters'))
+                  <span class="text-red-500 w-full text-sm mb-2">Password harus memiliki minimal 8 karakter!</span>
+              @endif
+          @enderror
 
-          <button class="bg-dark w-full h-10 rounded-lg text-white font-bold mb-5 pb-0.5"><a href="/">Create Account</a></button>
-          <button class="flex justify-center items-center gap-5 w-full h-10 rounded-lg font-bold border-2 border-dark">
+          <label for="password_confirmation">Password Confirmation</label>
+          <input class="w-full mb-2 mt-[1px] border-2 border-dark rounded-md h-10 p-2" type="password" name="password_confirmation" />
+          @error('password')
+              @if (str_contains($message, 'confirmation'))
+                  <span class="text-red-500 w-full text-sm mb-2">Password tidak sama!</span>
+              @endif
+          @enderror
+
+          <label for="address">Address</label>
+          <textarea name="address" class="w-full mb-4 mt-[1px] border-2 border-dark rounded-md h-16 p-2">{{ old('address') }}</textarea>
+
+          <button type="submit" class="bg-dark w-full h-10 rounded-md text-white font-bold mb-5 pb-0.5">Create Account</button>
+
+          {{-- <button class="flex justify-center items-center gap-5 w-full h-10 rounded-lg font-bold border-2 border-dark">
             <img src="img/Google_G_logo.svg.png" alt="Logo Google" class="w-6" />
             <p class="mb-0.5"><a href="/">Up with Google</a></p>
-          </button>
+          </button> --}}
         </form>
         <p class="text-center">Already have an account? <a href="signin" class="text-pkk">Sign In</a></p>
       </div>
