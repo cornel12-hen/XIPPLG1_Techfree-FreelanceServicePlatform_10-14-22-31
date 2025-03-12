@@ -28,7 +28,7 @@
           <!-- Menu Navbar Desktop -->
           <div class="hidden lg:flex items-center space-x-6">
             <div class="space-x-4">
-              <a href="{{ route('client.postjobs') }}" class="hover:text-pkk font-semibold transition-all">Post Job</a>
+              <a href="{{ route('client.postjob') }}" class="hover:text-pkk font-semibold transition-all">Post Job</a>
               <a href="{{ route('client.myjobs') }}" class="hover:text-pkk font-semibold">My Jobs</a>
               <a href="#" class="text-pkk font-semibold">Dashboard</a>
             </div>
@@ -50,9 +50,9 @@
         <!-- Menu Navbar Mobile -->
         <div id="mobile-menu" class="fixed top-0 right-0 h-full w-48 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden z-40">
           <div class="flex flex-col items-start space-y-4 py-8 px-6">
-            <a href="#" class="block hover:text-pkk">Post Jobs</a>
-            <a href="#" class="block hover:text-pkk">My Jobs</a>
-            <a href="#" class="block hover:text-pkk">Dashboard</a>
+            <a href="{{ route('client.postjob') }}" class="block hover:text-pkk">Post Jobs</a>
+            <a href="{{ route('client.myjobs') }}" class="block hover:text-pkk">My Jobs</a>
+            <a href="#" class="block text-pkk">Dashboard</a>
           </div>
         </div>
       </div>
@@ -82,8 +82,8 @@
       </div>
 
       <!-- Bottom Content -->
-      <div class="max-w-7xl mx-auto h-[640px] grid grid-cols-5 gap-4 py-12">
-        <div class="col-span-3 w-full bg-white rounded-md shadow-md py-4 px-7 border border-gray-200 flex flex-col divide-y divide-gray-200">
+      <div class="max-w-7xl mx-auto h-[640px] grid grid-rows-2 md:grid-cols-5 gap-4 py-12">
+        <div class="md:col-span-3 w-full bg-white rounded-md shadow-md py-4 px-7 border border-gray-200 flex flex-col divide-y divide-gray-200">
           <div class="flex gap-2 mb-4">
             <div class="w-fit h-fit bg-gray-100 rounded-sm p-1">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -129,7 +129,7 @@
           @endif
         </div>
 
-        <div class="col-span-2 w-full bg-white rounded-md shadow-md py-4 px-7 border border-gray-200 flex flex-col divide-y divide-gray-200">
+        <div class="md:col-span-2 w-full bg-white rounded-md shadow-md py-4 px-7 border border-gray-200 flex flex-col divide-y divide-gray-200">
           <div class="flex gap-2 mb-4">
             <div class="w-fit h-fit bg-gray-100 rounded-sm p-1">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -137,7 +137,7 @@
               </svg>                                    
             </div>
             <p class="text-lg font-medium">
-              Chat Client
+              Chat Freelancer
             </p>
           </div>
 
@@ -146,7 +146,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 3.75 18 6m0 0 2.25 2.25M18 6l2.25-2.25M18 6l-2.25 2.25m1.5 13.5c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z" />
               </svg>              
-              <p>Anda belum terhubung dengan client.</p>
+              <p>Anda belum terhubung dengan freelancer mana pun.</p>
             </div>
           @else
           <div class="flex flex-col overflow-y-scroll">

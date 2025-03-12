@@ -128,20 +128,26 @@
         <h2 class="text-4xl font-bold">Ready To Get Started?</h2>
         <p class="mt-4 text-lg mx-2">Bergabunglah sebagai seorang klien maupun freelancer! Ambil peluang yang tak terbatas dan raihlah kebebasanmu!</p>
         {{-- <a href="signup" class="mt-6 inline-block bg-pkk text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-pkk">Sign Up Now</a> --}}
-        <div class="flex md:w-[480px] md:h-[200px] w-[35%] h-[35%] max-w-[100%] justify-center mt-8 gap-8">
-          <div class="w-96 bg-white text-gray-800 font-bold text-xl rounded-xl hover:scale-105 transition-transform overflow-hidden">
-            <a href="{{ route('freelancer.register') }}">
-              <img src="img/freelancer.jpg" alt="" class="w-full h-[75%] scale-x-[-1] mb-2">
-              <p>Freelancer</p>
-            </a>
+        <div class="flex flex-col md:flex-row md:w-[480px] md:h-[200px] w-[75%] h-auto max-w-[100%] justify-center mt-8 gap-8">
+    
+          <!-- Freelancer Card -->
+          <div class="w-30 md:w-48 lg:w-56 bg-white text-gray-800 font-bold text-sm md:text-lg lg:text-xl rounded-xl hover:scale-105 transition-transform overflow-hidden flex flex-col items-center">
+              <a href="{{ route('freelancer.register') }}">
+                  <img src="img/freelancer.jpg" alt="Freelancer" class="w-full h-[75%] scale-x-[-1] object-cover">
+                  <p class="min-h-[50px] flex items-center justify-center w-full">Freelancer</p>
+              </a>
           </div>
-          <div class="w-96 bg-white text-gray-800 font-bold text-xl rounded-xl hover:scale-105 transition-transform overflow-hidden">
-            <a href="{{ route('client.register') }}">
-              <img src="img/client.jpg" alt="" class="w-full h-[75%] mb-2">
-              <p>Client</p>
-            </a>
+      
+          <!-- Client Card -->
+          <div class="w-30 md:w-48 lg:w-56 bg-white text-gray-800 font-bold text-sm md:text-lg lg:text-xl rounded-xl hover:scale-105 transition-transform overflow-hidden flex flex-col items-center">
+              <a href="{{ route('client.register') }}">
+                  <img src="img/client.jpg" alt="Client" class="w-full h-[75%] object-cover">
+                  <p class="min-h-[50px] flex items-center justify-center w-full">Client</p>
+              </a>
           </div>
-        </div>
+      
+      </div>
+      
       </div>
     </section>
 

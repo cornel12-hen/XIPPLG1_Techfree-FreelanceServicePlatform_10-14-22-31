@@ -29,9 +29,9 @@
           <!-- Menu Navbar Desktop -->
           <div class="hidden lg:flex items-center space-x-6">
             <div class="space-x-4">
-              <a href="{{ route('client.dashboard') }}" class="hover:text-pkk font-semibold transition-all">Post Job</a>
-              <a href="#" class="hover:text-pkk font-semibold">My Jobs</a>
-              <a href="{{ route('client.dashboard') }}" class="text-pkk font-semibold">Dashboard</a>
+              <a href="{{ route('client.postjob') }}" class="hover:text-pkk font-semibold transition-all">Post Job</a>
+              <a href="#" class="text-pkk font-semibold">My Jobs</a>
+              <a href="{{ route('client.dashboard') }}" class="hover:text-pkk font-semibold">Dashboard</a>
             </div>
             <a href="#CTA">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -51,8 +51,8 @@
         <!-- Menu Navbar Mobile -->
         <div id="mobile-menu" class="fixed top-0 right-0 h-full w-48 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden z-40">
           <div class="flex flex-col items-start space-y-4 py-8 px-6">
-            <a href="{{ route('client.postjobs') }}" class="block hover:text-pkk">Post Jobs</a>
-            <a href="#" class="block hover:text-pkk">My Jobs</a>
+            <a href="{{ route('client.postjob') }}" class="block hover:text-pkk">Post Jobs</a>
+            <a href="#" class="block text-pkk">My Jobs</a>
             <a href="{{ route('client.dashboard') }}" class="block hover:text-pkk">Dashboard</a>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path

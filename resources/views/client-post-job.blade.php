@@ -28,9 +28,9 @@
           <!-- Menu Navbar Desktop -->
           <div class="hidden lg:flex items-center space-x-6">
             <div class="space-x-4">
-              <a href="{{ route('client.postjob') }}" class="hover:text-pkk font-semibold transition-all">Post Job</a>
+              <a href="#" class="text-pkk font-semibold transition-all">Post Job</a>
               <a href="{{ route('client.myjobs') }}" class="hover:text-pkk font-semibold">My Jobs</a>
-              <a href="#" class="text-pkk font-semibold">Dashboard</a>
+              <a href="{{ route('client.dashboard') }}" class="hover:text-pkk font-semibold">Dashboard</a>
             </div>
             <a href="#CTA">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -50,9 +50,9 @@
         <!-- Menu Navbar Mobile -->
         <div id="mobile-menu" class="fixed top-0 right-0 h-full w-48 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden z-40">
           <div class="flex flex-col items-start space-y-4 py-8 px-6">
-            <a href="#" class="block hover:text-pkk">Post Jobs</a>
-            <a href="#" class="block hover:text-pkk">My Jobs</a>
-            <a href="#" class="block hover:text-pkk">Dashboard</a>
+            <a href="#" class="block text-pkk">Post Jobs</a>
+            <a href="{{ route('client.myjobs') }}" class="block hover:text-pkk">My Jobs</a>
+            <a href="{{ route('client.dashboard') }}" class="block hover:text-pkk">Dashboard</a>
           </div>
         </div>
       </div>
@@ -65,9 +65,9 @@
         <div class="max-w-7xl h-full mx-auto flex justify-center gap-4">
           <div class="w-[50%] h-full px-4 flex flex-col text-center justify-center">
             <div>
-              <p class="text-4xl font-sans font-bold mb-2">Selamat datang {{ $client->name }}</p>
+              <p class="text-4xl font-sans font-bold mb-2">Atur Job</p>
               <p class="text-base font-sans">
-                Lihat data tugas dan lainnya di sini
+                Atur job dan formulir pendaftaran yang sudah kamu buat
               </p>
             </div>
           </div>
@@ -82,8 +82,8 @@
       </div>
 
       <!-- Bottom Content -->
-      <div class="max-w-7xl mx-auto max-h-[640px] h-[640px] grid grid-cols-10 gap-4 py-12">
-        <div class="col-span-4 w-full h-full bg-white rounded-md shadow-md py-4 px-7 border border-gray-200 flex flex-col divide-y divide-gray-200">
+      <div class="max-w-7xl mx-auto h-full grid grid-rows-2 md:grid-cols-10 gap-4 py-12">
+        <div class="md:col-span-4 w-full h-full bg-white rounded-md shadow-md py-4 px-7 border border-gray-200 flex flex-col divide-y divide-gray-200">
           <div class="flex gap-2 mb-4">
             <div class="w-fit h-fit bg-gray-100 rounded-sm p-1">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -95,7 +95,7 @@
             </p>            
           </div>
           
-          <div class="overflow-y-scroll h-full max-h-[472px]">
+          <div class="overflow-y-scroll h-full max-h-full">
             @if ($jobs->isEmpty())
               <div class="flex flex-col justify-center items-center w-full h-full">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -107,53 +107,57 @@
               <div class="flex flex-col">
               @foreach ($jobs as $job)
 
-              {{-- Trigger --}}
-                <div class="w-full h-fit bg-gray-100 rounded-lg flex flex-col my-4 py-3 px-4">
-                  <p class="text-base font-medium">{{ $job->name }}</p>
-                </div>
-
-              {{-- Yang dimunculin --}}
-                <div class="flex flex-col w-full py-3 pt-0 px-4 overflow-y-scroll">
-                  @if ($job->status == 'Not accept')
-                    <p class="text-sm font-medium">Job Status</p>
-                    <p class="text-sm text-red-600 mb-[6px]">{{ $job->status }}</p>
-                  @elseif ($job->status == 'On process')
-                    <p class="text-sm font-medium">Job Status</p>
-                    <p class="text-sm text-yellow-600 mb-[6px]">{{ $job->status }}</p>
-                  @elseif ($job->status == 'On submission')
-                    <p class="text-sm font-medium">Job Status</p>
-                    <p class="text-sm text-pkk mb-[6px]">{{ $job->status }}</p>
-                  @elseif ($job->status == 'Finish')
-                    <p class="text-sm font-medium">Job Status</p>
-                    <p class="text-sm text-green-600 mb-[6px]">{{ $job->status }}</p>
-                  @endif
-                  <hr class="mb-1">
-                  <p class="text-sm font-medium">Job Deadline</p>
-                  <p class="mb-2 text-sm">{{ $job->job_deadline }}</p>
-                  <hr class="mb-1">
-                  <p class="text-sm font-medium">Job Category</p>
-                  <p class="mb-2 text-sm">{{ $job->posted_at }}</p>
-                  <hr class="mb-1">
-                  <p class="text-sm font-medium">Job Description</p>
-                  <p class="mb-2 text-sm">{{ $job->description }}</p>
-                  <hr class="mb-1">
-                  <p class="text-sm font-medium">Requirement</p>
-                  <pre class="mb-2 text-sm font-sans">
-{{ $job->requirement }}</pre>
-                  <hr class="mb-1">
-                  <p class="text-sm font-medium">Job Category</p>
-                  <p class="mb-2 text-sm">{{ $job->category->name }}</p>
-                  <hr class="mb-1">
-                  <p class="text-sm font-medium">Job Description</p>
-                  <p class="mb-2 text-sm">{{ $job->price }}</p>
-                </div>
+              <div class="group">
+                <input type="checkbox" id="job-{{ $job->id }}" class="peer hidden">
+  
+                {{-- Trigger --}}
+                  <label for="job-{{ $job->id }}" class="w-full h-fit bg-gray-100 rounded-lg flex flex-col my-2 py-3 px-4">
+                    <p class="text-base font-medium">{{ $job->name }}</p>
+                  </label>
+  
+                {{-- Yang dimunculin --}}
+                  <div class="hidden peer-checked:flex flex-col w-full max-md:h-[200px] py-3 pt-0 px-4 overflow-y-scroll">
+                    @if ($job->status == 'Not accept')
+                      <p class="text-sm font-medium">Job Status</p>
+                      <p class="text-sm text-red-600 mb-[6px]">{{ $job->status }}</p>
+                    @elseif ($job->status == 'On process')
+                      <p class="text-sm font-medium">Job Status</p>
+                      <p class="text-sm text-yellow-600 mb-[6px]">{{ $job->status }}</p>
+                    @elseif ($job->status == 'On submission')
+                      <p class="text-sm font-medium">Job Status</p>
+                      <p class="text-sm text-pkk mb-[6px]">{{ $job->status }}</p>
+                    @elseif ($job->status == 'Finish')
+                      <p class="text-sm font-medium">Job Status</p>
+                      <p class="text-sm text-green-600 mb-[6px]">{{ $job->status }}</p>
+                    @endif
+                    <hr class="mb-1">
+                    <p class="text-sm font-medium">Job Deadline</p>
+                    <p class="mb-2 text-sm">{{ $job->job_deadline }}</p>
+                    <hr class="mb-1">
+                    <p class="text-sm font-medium">Job Category</p>
+                    <p class="mb-2 text-sm">{{ $job->posted_at }}</p>
+                    <hr class="mb-1">
+                    <p class="text-sm font-medium">Job Description</p>
+                    <p class="mb-2 text-sm">{{ $job->description }}</p>
+                    <hr class="mb-1">
+                    <p class="text-sm font-medium">Requirement</p>
+                    <pre class="mb-2 text-sm font-sans">
+  {{ $job->requirement }}</pre>
+                    <hr class="mb-1">
+                    <p class="text-sm font-medium">Job Category</p>
+                    <p class="mb-2 text-sm">{{ $job->category->name }}</p>
+                    <hr class="mb-1">
+                    <p class="text-sm font-medium">Job Description</p>
+                    <p class="mb-2 text-sm">{{ $job->price }}</p>
+                  </div>
+              </div>
               @endforeach
               </div>
             @endif
           </div>
         </div>
 
-        <div class="col-span-6 w-full bg-white rounded-md shadow-md py-4 px-7 border border-gray-200 flex flex-col divide-y divide-gray-200">
+        <div class="md:col-span-6 w-full bg-white rounded-md shadow-md py-4 px-7 border border-gray-200 flex flex-col divide-y divide-gray-200">
           <div class="flex gap-2 mb-4">
             <div class="w-fit h-fit bg-gray-100 rounded-sm p-1">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -172,10 +176,10 @@
               <input class="w-full mb-2 mt-[1px] border-[1.5px] border-dark rounded-md h-10 p-2" type="text" name="name" value="{{ old('email') }}" />
     
               <label for="description">Job Description</label>
-              <input class="w-full mb-2 mt-[1px] border-[1.5px] border-dark rounded-md h-10 p-2" type="textarea" name="description" />
-    
+              <textarea class="w-full mb-2 mt-[1px] border-[1.5px] border-dark rounded-md p-2" name="description" id=""  rows="2"></textarea>
+
               <label for="requirement">Requirement</label>
-              <input class="w-full mb-2 mt-[1px] border-[1.5px] border-dark rounded-md h-10 p-2" type="text" name="requirement" />
+              <textarea class="w-full mb-2 mt-[1px] border-[1.5px] border-dark rounded-md p-2" name="description" id=""  rows="2"></textarea>
 
               <label for="category">Category</label>
               <input class="w-full mb-2 mt-[1px] border-[1.5px] border-dark rounded-md h-10 p-2" type="text" name="category" />

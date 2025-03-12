@@ -33,6 +33,10 @@ class ClientController extends Controller
 
     public function myJobs()
     {
+        if(!auth('client')->check()){
+            return redirect()->route('client.login');
+        }
+
         $client = auth('client')->user();
 
         $jobs = WorkJob::where('client_id', $client->id)->with('category')->get();
@@ -43,6 +47,10 @@ class ClientController extends Controller
 
     public function postJobs()
     {
+        if(!auth('client')->check()){
+            return redirect()->route('client.login');
+        }
+        
         $client = auth('client')->user();
 
         $jobs = WorkJob::where('client_id', $client->id)->with('category')->get();

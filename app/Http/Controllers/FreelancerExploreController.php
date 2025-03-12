@@ -32,6 +32,10 @@ class FreelancerExploreController extends Controller
 
     public function myJobs()
     {
+        if(!auth('freelancer')->check()){
+            return redirect()->route('freelancer.login');
+        }
+
         $freelancer = auth('freelancer')->user();
 
         $jobs = Application::where('freelancer_id', $freelancer->id)

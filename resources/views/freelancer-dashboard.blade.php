@@ -82,8 +82,8 @@
       </div>
 
       <!-- Bottom Content -->
-      <div class="max-w-7xl mx-auto h-[640px] grid grid-cols-5 gap-4 py-12">
-        <div class="col-span-3 w-full bg-white rounded-md shadow-md py-4 px-7 border border-gray-200 flex flex-col divide-y divide-gray-200">
+      <div class="max-w-7xl mx-auto h-[640px] grid grid-rows-2 md:grid-cols-5 gap-4 py-12">
+        <div class="md:col-span-3 w-full bg-white rounded-md shadow-md py-4 px-7 border border-gray-200 flex flex-col divide-y divide-gray-200">
           <div class="flex gap-2 mb-4">
             <div class="w-fit h-fit bg-gray-100 rounded-sm p-1">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -129,7 +129,7 @@
           @endif
         </div>
 
-        <div class="col-span-2 w-full bg-white rounded-md shadow-md py-4 px-7 border border-gray-200 flex flex-col divide-y divide-gray-200">
+        <div class="md:col-span-2 w-full bg-white rounded-md shadow-md py-4 px-7 border border-gray-200 flex flex-col divide-y divide-gray-200">
           <div class="flex gap-2 mb-4">
             <div class="w-fit h-fit bg-gray-100 rounded-sm p-1">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
